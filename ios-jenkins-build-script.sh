@@ -2,7 +2,7 @@
 DISTRIBUTION_IDENTITY="iPhone Distribution: John Doe"
 PROVISIONING_PROFILE_PATH="<path to your mobileprovision file>"
 OSVERSION="5.1"
-# pwd points to Jenkin's workspace directory for this build job - We're going to use a separate subfolder within the workspace identified by the build number (which we automatically get from Jenkins)
+# pwd points to Jenkins' workspace directory for this build job - We're going to use a separate subfolder within the workspace identified by the build number (which we automatically get from Jenkins)
 BUILD_DIRECTORY="$(pwd)/build-${BUILD_NUMBER}"
 PLIST_PATH="$(pwd)/BSSCISample/BSSCISample-Info.plist"
 
@@ -11,6 +11,11 @@ PLIST_PATH="$(pwd)/BSSCISample/BSSCISample-Info.plist"
 # Determine the UUID of the provisioning profile and copy it to the appropriate location so Xcode can find it
 PROFILE_UUID=$(grep "<key>UUID</key>" "$PROVISIONING_PROFILE_PATH" -A 1 --binary-files=text | sed -E -e "/<key>/ d" -e "s/(^.*<string>)//" -e "s/(<.*)//")
 cp "$PROVISIONING_PROFILE_PATH" ~/Library/MobileDevice/Provisioning\ Profiles/$PROFILE_UUID.mobileprovision
+
+
+# Use this if you want or need a separate keychain for every project
+# security default-keychain -s "$KEYCHAIN_LOCATION"
+# security unlock-keychain -p $KEYCHAIN_PASSWORD "$KEYCHAIN_LOCATION"
 
 
 # Use this line if you want to build a workspace
