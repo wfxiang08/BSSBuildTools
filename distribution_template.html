@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> 
+<head> 
+<meta name="viewport" content="user-scalable=no, width=device-width" /> 
+<style type="text/css" media="screen"> 
+
+body {
+    background-color: rgb(203,230,248);
+    color: #222;
+    font-family: Helvetica; 
+	font-weight: bold;;
+    font-size: 14.5px;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+ul li a {
+    background-color: #FFFFFF;
+    border: 1px solid rgb(67,117,150);
+    color: #222222;
+    display: block;
+    font-size: 14.5px;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 12px 10px;
+    text-decoration: none;
+}
+
+ul li:first-child a {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+ul li:last-child a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
+</style> 
+
+<html> 
+	<head>
+		<title>[PAGE_TITLE]</title> 
+	</head>
+	<body>
+		<div style="text-align: center; margin-left: auto; margin-right: auto;">Tap the link below to install [APP_NAME] on your device</div>
+		<ul>
+			<li><a href="itms-services://?action=download-manifest&url=[MANIFEST_PATH]">Install [APP_NAME] [APP_VERSION]</a></li>
+		</ul> 
+	</body>
+</html>
